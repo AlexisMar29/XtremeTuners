@@ -150,20 +150,63 @@ footer a {
 
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
     .nav-list {
         flex-direction: column;
-        text-align: center;
-        gap: 10px;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .nav-list a {
+        font-size: 16px;
     }
 
     .hero {
-        height: 350px;
+        min-height: 300px;
+        height: auto;
+        padding: 40px 15px;
+    }
+
+    .overlay {
+        width: 100%;
+        max-width: 500px;
+        padding: 20px;
+        border-radius: 10px;
     }
 
     #site-title {
         font-size: 2rem;
+        line-height: 1.2;
     }
 
+    #hero-sub {
+        font-size: 1rem;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 12px 18px;
+        text-align: center;
+    }
+
+    .card {
+        margin: 15px 10px;
+        padding: 18px;
+    }
+
+    .grid {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
     .overlay {
         padding: 30px;
     }
