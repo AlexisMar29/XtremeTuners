@@ -9,8 +9,14 @@
 </head>
 <body>
 
-<div class="container" id="page-product">
+   <div id="cart">
+  <h3>🛒 Shopping Cart</h3>
+  <ul id="cart-items"></ul>
+  <p><strong>Total: $<span id="cart-total">0</span></strong></p>
+</div>
 
+<div class="container" id="page-product">
+ 
   <nav role="navigation" aria-label="Main Navigation">
     <ul class="nav-list">
       <li><a href="index.html">Home</a></li>
@@ -23,8 +29,8 @@
 
   <header class="hero" id="product-hero">
     <div class="overlay">
-     <h1>
-  <a href="Image/HKS.jpg" target="_blank">
+    <h1>
+  <a href="image/HKS.jpg" target="_blank">
     HKS Turbo Kit (Example)
   </a>
 </h1>
@@ -56,24 +62,78 @@
       <h2>Price</h2>
       <p class="kv">$3,499.00</p>
 
-      <form aria-label="Add to cart form" id="add-to-cart">
-        <label for="fitment">Select Fitment / Variant</label>
-        <select id="fitment" name="fitment" required>
-          <option value="">-- Select --</option>
-          <option value="sr20">SR20DET Kit</option>
-          <option value="rb25">RB25DET Kit</option>
-          <option value="2jz">2JZ Kit</option>
-        </select>
+     <form id="add-to-cart">
 
-        <label for="qty">Quantity</label>
-        <select id="qty" name="qty">
-          <option>1</option><option>2</option><option>3</option>
-        </select>
+<label for="fitment">Select Fitment</label>
+<select id="fitment" name="fitment" required>
+  <option value="">-- Select --</option>
+  <option value="SR20DET Kit" data-price="3499">SR20DET Kit</option>
+  <option value="RB25DET Kit" data-price="3699">RB25DET Kit</option>
+  <option value="2JZ Kit" data-price="3999">2JZ Kit</option>
+</select>
 
-        <button type="submit">Add to Cart</button>
-      </form>
+<label for="qty">Quantity</label>
+<input type="number" id="qty" name="qty" value="1" min="1">
+
+<h3>Add-ons</h3>
+<label><input type="checkbox" class="addon" name="addon" value="intercooler" data-price="600"> Intercooler (+$600)</label><br>
+<label><input type="checkbox" class="addon" name="addon" value="injectors" data-price="400"> Injectors (+$400)</label><br>
+<label><input type="checkbox" class="addon" name="addon" value="ecu" data-price="800"> ECU Tune (+$800)</label>
+
+<label for="finish">Finish</label>
+<select id="finish" name="finish">
+  <option>Polished</option>
+  <option>Black Coated</option>
+  <option>Titanium Finish</option>
+</select>
+
+<h3>Shipping</h3>
+<select id="shipping" name="shipping">
+  <option>Standard (5–7 days)</option>
+  <option>Express (2–3 days)</option>
+  <option>Overnight</option>
+</select>
+
+<label for="car">Enter Your Car</label>
+<input type="text" id="car" name="car" placeholder="e.g. 1998 Toyota Supra">
+
+<br><br>
+
+<p><strong>Total Price: $<span id="live-total">0</span></strong></p>
+
+<button type="submit" class="btn">Add to Cart</button>
+<button type="button" class="btn secondary">♡ Save for Later</button>
+<button type="button" onclick="buyNow()" class="btn buy-now">Buy Now</button>
+
+</form>
+
 
     </section>
+
+    <section class="shop-grid">
+
+  <div class="product-card">
+    <img src="image/turbokit.jpg" alt="Turbo Kit">
+    <h3>HKS Turbo Kit</h3>
+    <p>$3499</p>
+    <a href="template.html" class="btn">View</a>
+  </div>
+
+  <div class="product-card">
+    <img src="image/intercooler.jpg" alt="Intercooler">
+    <h3>Greddy Intercooler</h3>
+    <p>$899</p>
+    <button onclick="quickAdd('Intercooler', 899)">Add</button>
+  </div>
+
+  <div class="product-card">
+    <img src="image/BBS.jpg" alt="Wheels">
+    <h3>BBS Wheels</h3>
+    <p>$1200</p>
+    <button onclick="quickAdd('Wheels', 1200)">Add</button>
+  </div>
+
+</section>
   </main>
 
   <footer>
@@ -83,6 +143,6 @@
   </footer>
 
 </div>
-
+<script src="script.js" defer></script>
 </body>
 </html>
